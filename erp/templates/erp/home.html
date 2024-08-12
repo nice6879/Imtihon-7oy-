@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+<main  class="main__content_wrapper">
+
+       
+    <section class="banner__section section--padding color-scheme-2 pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner__section--inner d-flex align-items-center">
+                        <div class="banner__discount--content">
+                            <h2 class="banner__discount--content__title">Eng mashhu kitoblar</h2>
+                            <p class="banner__discount--content__desc">Dunyo boʻylab eng koʻp sotilgan kitoblar roʻyxatida, butun dunyo boʻylab eng koʻp sotilgan kitoblar roʻyxati keltirib oʻtilgan. Unda jahon bestseller asarlari kiritilgan. Diniy kitoblar bu roʻyxatga kiritilmagan. Roʻyxatda faqat tijorat maqsadlarida chop etilgan kitoblar mavjud.</p>
+                            <a class=" primary__btn btn__style2" href="shop.html" rel="nofollow">Discover More</a>    
+                        </div>
+                        <div class="banner2__right--sidebar position__relative d-flex">
+                            <div class="banner2__sidebar--items one position__relative">
+                                <a class="banner__items--thumbnail " href="#" rel="nofollow"><img class="banner__items--thumbnail__img" src="{% static 'assets/img/kitob3.jpg' %}" alt="banner-img"></a>
+                                <div class="product__badge style2">
+                                    <span class="product__badge--items style2 sale">Chair</span>
+                                </div>
+                            </div>
+                            <div class="banner2__sidebar--items two position__relative">
+                                <a class="banner__items--thumbnail " href="#" rel="nofollow"><img class="banner__items--thumbnail__img" src="{% static 'assets/img/images.jpg' %}" alt="banner-img"></a>
+                            </div>
+                            <div class="banner2__sidebar--items three position__relative">
+                                <a class="banner__items--thumbnail " href="#" rel="nofollow"><img class="banner__items--thumbnail__img" src="{% static 'assets/img/kitob3.jpg' %}" alt="banner-img"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="product__section section--padding color-scheme-2 pt-0">
+        <div class="container">
+            <div class="product__section--header d-flex justify-content-between mb-40">
+                <div class="section__heading text-center">
+                    <h2 style="text-align: center;" class="section__heading--maintitle">Most Popular Items</h2>
+                </div>
+                
+            </div>
+            
+            <div class="tab_content">
+                <div id="chair" class="tab_pane active show">
+                    <div class="product__section--inner">
+                        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 mb--n30">
+                          {% for i in products %}
+                            <div class="col mb-30">
+                                <div class="product__items ">
+                                    <div class="product__items--thumbnail">
+                                        <a class="product__items--link" href="{% url 'client:batafsil' i.id %}">
+                                            <img class="product__items--img product__primary--img" src="{{i.image.url}}" alt="product-img">
+                                            <img class="product__items--img product__secondary--img" src="{{i.image.url}}" alt="product-img">
+                                        </a>
+                                        <div class="product__badge">
+                                            <span class="product__badge--items sale">New</span>
+                                        </div>
+                                        <ul class="product__items--action d-flex justify-content-center">
+                                            <li class="product__items--action__list">
+                                                <a class="product__items--action__btn" data-open="modal1" href="{% url 'client:batafsil' i.id %}">
+                                                    <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+                                                    <span class="visually-hidden">Quick View</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__items--content text-center">
+                                        <div class="product__items--color">
+                                            <ul class="product__items--color__wrapper d-flex justify-content-center">
+                                                <li class="product__items--color__list"><a class="product__items--color__link one" href="javascript:void(0)"><span class="visually-hidden">Color 1</span></a></li>
+                                                <li class="product__items--color__list"><a class="product__items--color__link two" href="javascript:void(0)"><span class="visually-hidden">Color 2</span></a></li>
+                                                <li class="product__items--color__list"><a class="product__items--color__link three" href="javascript:void(0)"><span class="visually-hidden">Color 3</span></a></li>
+                                                <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 3</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="product__items--content__title h4"><a href="#">{{ i.name }}</a></h3>
+                                        <div class="product__items--price">
+                                            <span class="current__price">${{ i.price }}</span>
+                                        </div>
+                                        <div class="product__variant--list quantity d-flex align-items-center mb-20">
+                                            <div class="quantity__box">
+                                                <label>
+                                                    <input type="number" class="quantity__number quickview__value--number" name="cart" type="number" value="1" />
+                                                </label>
+                                            </div>
+                                            <button class="quickview__cart--btn primary__btn" type="submit">Add To Cart</button>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+</main>
+
+
+{% endblock content %}

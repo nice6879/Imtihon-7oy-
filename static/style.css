@@ -1,0 +1,17 @@
+.slider1 {
+    background-image: url('path/to/your/image1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.slider2 {
+    background-image: url('path/to/your/image2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.slider3 {
+    background-image: url('path/to/your/image3.jpg');
+    background-size: cover;
+    background-position: center;
+}
